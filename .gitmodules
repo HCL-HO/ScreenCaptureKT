@@ -1,0 +1,3 @@
+[submodule "src/ConfigLoaderKT"]
+	path = src/ConfigLoaderKT
+	url = https://github.com/HCL-HO/ConfigLoaderKT.git
