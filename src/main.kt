@@ -20,17 +20,22 @@ const val CMD_SHOW_EXT: Int = 1
 
 fun main(args: Array<String>) {
     loadConfig(configPath)
-    when (args[0].toInt()) {
-        CMD_HIDE_EXT -> {
-            renameAllToPNG();
+    if(args.isNotEmpty()){
+        when (args[0].toInt()) {
+            CMD_HIDE_EXT -> {
+                renameAllToPNG();
+            }
+            CMD_SHOW_EXT -> {
+                removePNGFromFile()
+            }
+            else -> {
+                capScreen(getFolderPath())
+            }
         }
-        CMD_SHOW_EXT -> {
-            removePNGFromFile()
-        }
-        else -> {
-            capScreen(getFolderPath())
-        }
+    } else {
+        capScreen(getFolderPath())
     }
+
 }
 
 fun listAllImageFile(consumer: (file: File) -> Unit) {
